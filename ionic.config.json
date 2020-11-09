@@ -1,0 +1,7 @@
+{
+  "name": "WebSocketApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
