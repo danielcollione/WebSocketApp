@@ -12,6 +12,9 @@ export class HomePage implements OnInit, OnDestroy {
   constructor(private WebSocketService: WebSocketService) {}
 
   ngOnInit() {
+    this.WebSocketService.openWebSocket().then((res) =>
+      console.log("Servidor WebSocket aberto na porta 9898.")
+    );
   }
 
   ngOnDestroy() {
@@ -19,8 +22,6 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   onClick(msg: string) {
-    this.WebSocketService.openWebSocket().then(() =>
-      this.WebSocketService.sendComandWhoAreYou(msg)
-    );
+    this.WebSocketService.sendComandWhoAreYou(msg);
   }
 }

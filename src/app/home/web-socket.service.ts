@@ -19,7 +19,7 @@ export class WebSocketService {
       };
 
       this.webSocket.onmessage = event => {
-        console.log(event.data);
+        console.log('Mensagem recebida do servidor: ', event.data);
       };
 
       this.webSocket.onclose = event => {
@@ -29,8 +29,8 @@ export class WebSocketService {
   }
 
   public sendComandWhoAreYou(msg: string) {
-    console.log(msg);
     this.webSocket.send(msg);
+    console.log('Mensagem enviada para o servidor: ', msg);
   }
 
   public closeWebSocket() {
