@@ -10,7 +10,7 @@ export class WebSocketService {
   webSocket: WebSocket;
 
   public openWebSocket(): Promise<boolean> {
-    this.webSocket = new WebSocket('ws://localhost:9898');
+    this.webSocket = new WebSocket('ws://172.16.106.118/ws');
 
     return new Promise(resolve => {
       this.webSocket.onopen = event => {
@@ -29,7 +29,7 @@ export class WebSocketService {
   }
 
   public sendComandWhoAreYou(msg: string) {
-    this.webSocket.send(msg);
+    this.webSocket.send(JSON.stringify(msg));
     console.log('Mensagem enviada para o servidor: ', msg);
   }
 
